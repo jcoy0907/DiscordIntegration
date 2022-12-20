@@ -1,16 +1,17 @@
 // Add your dependencies here
 
 dependencies {
-//    shadowImplementation("net.dv8tion:JDA:4.2.0_247") {
+//    shadowImplementation("net.dv8tion:JDA:5.0.0-beta.2") {
 //        exclude module: "opus-java"
 //    }
 //    shadowImplementation 'org.json:json:20160810'
 //    shadowImplementation 'com.vdurmont:emoji-java:4.0.0'
 //    shadowImplementation 'org.slf4j:slf4j-simple:1.7.36'
 
-    compile("net.dv8tion:JDA:5.0.0-beta.2") {
+    implementation 'org.json:json:20160810'
+    implementation 'com.vdurmont:emoji-java:4.0.0'
+    implementation 'org.slf4j:slf4j-simple:1.7.36'
+    implementation("net.dv8tion:JDA:5.0.0-beta.2") {
         exclude module: 'opus-java'
     }
-    compile 'org.json:json:20220924'
-    compile 'com.vdurmont:emoji-java:5.1.1'
 }

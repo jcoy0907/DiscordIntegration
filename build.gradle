@@ -81,7 +81,7 @@ def out = services.get(StyledTextOutputFactory).create('an-output')
 
 apply plugin: 'forge'
 
-def projectJavaVersion = JavaLanguageVersion.of(11)
+def projectJavaVersion = JavaLanguageVersion.of(8)
 
 java {
     toolchain {
