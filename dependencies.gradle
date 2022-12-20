@@ -1,9 +1,9 @@
 // Add your dependencies here
 
 dependencies {
-    compile("net.dv8tion:JDA:5.0.0-beta.2") {
+    shadeCompile("net.dv8tion:JDA:5.0.0-beta.2") {
         exclude module: 'opus-java'
     }
-    compile 'org.json:json:20220924'
-    compile 'com.vdurmont:emoji-java:5.1.1'
+    shadeCompile 'org.json:json:20220924'
+    shadeCompile 'com.vdurmont:emoji-java:5.1.1'
 }
