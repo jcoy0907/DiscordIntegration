@@ -5,4 +5,8 @@ repositories {
         name = "Maven Central"
         url = "https://repo1.maven.org/maven2/"
     }
+    maven {
+        name = "jCenter"
+        url = "https://jcenter.bintray.com/"
+    }
 }
