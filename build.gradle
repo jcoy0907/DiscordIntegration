@@ -63,12 +63,11 @@ plugins {
     id 'eclipse'
     id 'scala'
     id 'maven-publish'
-    id 'maven'
     id 'org.jetbrains.kotlin.jvm'        version '1.5.30'       apply false
     id 'org.jetbrains.kotlin.kapt'       version '1.5.30'       apply false
     id 'com.google.devtools.ksp'         version '1.5.30-1.0.0' apply false
     id 'org.ajoberstar.grgit'            version '4.1.1'
-    id 'com.github.johnrengelman.shadow' version '6.1.0'
+    id 'com.github.johnrengelman.shadow' version '4.0.4'
     id 'com.palantir.git-version'        version '0.13.0'
     id 'de.undercouch.download'          version '5.0.1'
     id 'com.github.gmazzo.buildconfig'   version '3.0.3'        apply false
@@ -97,9 +96,9 @@ idea {
     }
 }
 
-//if(JavaVersion.current() != JavaVersion.VERSION_1_8) {
-//    throw new GradleException("This project requires Java 8, but it's running on " + JavaVersion.current())
-//}
+if(JavaVersion.current() != JavaVersion.VERSION_1_8) {
+    throw new GradleException("This project requires Java 8, but it's running on " + JavaVersion.current())
+}
 
 checkPropertyExists("modName")
 checkPropertyExists("modId")
@@ -391,6 +390,8 @@ jar {
     }
 }
 
+apply from: 'jars.gradle'
+
 reobf {
     if(usesMixins.toBoolean()) {
         addExtraSrgFile mixinSrg
@@ -405,11 +406,6 @@ if(usesMixins.toBoolean()) {
                 "-AoutSrgFile=${mixinSrg}",
                 "-AoutRefMapFile=${mixinRefMap}"
         ]
-        sourceCompatibility = "${JavaVersion.VERSION_1_8}"
-    }
-} else {
-    tasks.compileJava {
-        sourceCompatibility = "${JavaVersion.VERSION_1_8}"
     }
 }
 
